@@ -8,6 +8,7 @@ adding debugger for each step.
 
 module.exports = {
   '@tags': ['Hackernews'],
+  '@disabled': true,
   'Hackernews data scraping': function(browser) {
     browser
       .url('https://news.ycombinator.com/')
