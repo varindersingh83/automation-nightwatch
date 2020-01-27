@@ -1,6 +1,5 @@
 module.exports = {
   '@tags': ['ecosia'],
-  '@disabled': true,
   'step one: navigate to ecosia.org': function(browser) {
     browser
       .url('https://www.ecosia.org')
