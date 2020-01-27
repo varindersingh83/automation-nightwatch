@@ -1,48 +1,18 @@
-const config = require('../config.js');
-
 module.exports = {
-  '@tags': ['goodreads'],
-  'SignIn with enter key': function(browser) {
-    const email = config.goodreads.SignIn.email;
-    const password = config.goodreads.SignIn.password;
-
-    const page = browser.page.goodreadsSignin();
-
-    page
-      .navigate()
+  'Login to Goodreads.org': function(browser) {
+    browser
+      .url('https://www.goodreads.com/')
       .waitForElementVisible('body')
       .assert.titleContains('Goodreads')
-      .assert.visible('@emailInput')
-      .signInCredentials(email, password);
-
-    browser
-      // .saveScreenshot('./screenshots/signIn.png')
+      .assert.visible('#userSignInFormEmail')
+      .setValue('#userSignInFormEmail', 'enifyf@vomoto.com')
+      .setValue('#user_password', 'bot123321')
+      .saveScreenshot('./screenshots/signIn.png')
       .keys('\uE007')
       .pause(1000)
-      // .saveScreenshot('./screenshots/homepage.png')
+      .saveScreenshot('./screenshots/homepage.png')
       .end();
-  },
-  'SignIn with Sign in button': function(browser) {
-    const email = config.goodreads.SignIn.email;
-    const password = config.goodreads.SignIn.password;
-
-    const emailInput = '#userSignInFormEmail';
-    const passwordInput = '#user_password';
-    const singInButton = '.gr-button';
-    const page = browser.page.goodreadsSignin();
-    page
-      .navigate()
-      .waitForElementVisible('body')
-      .assert.titleContains('Goodreads')
-      .assert.visible('@emailInput')
-      .setValue('@emailInput', email)
-      .setValue('@passwordInput', password)
-      // .saveScreenshot('./screenshots/signIn.png')
-      .click('@singInButton')
-      // .saveScreenshot('./screenshots/signIn.png')
-      // .keys('\uE007')
-      .pause(1000)
-      // .saveScreenshot('./screenshots/homepage.png')
-      .end();
+    //   email: enifyf@vomoto.com
+    //   pwd: bot123321
   }
 };
