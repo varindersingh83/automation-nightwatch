@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   src_folders: ['tests'],
 
@@ -17,6 +19,9 @@ module.exports = {
       },
       desiredCapabilities: {
         browserName: 'chrome'
+        // chromeOptions: {
+        //   args: ['--headless']
+        // }
       }
     }
   }
