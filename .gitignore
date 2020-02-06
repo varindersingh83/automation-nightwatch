@@ -1,5 +1,6 @@
 node_modules
 tests_output
+tests/beezwax.js
 reports/*
 screenshots/*
 .env
